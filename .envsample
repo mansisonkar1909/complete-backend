@@ -1,0 +1,2 @@
+PORT=8000
+MONGODB_URI=mongodb+srv://mansi_s1909:M@nsi1909@cluster0.v5pgivx.mongodb.net
