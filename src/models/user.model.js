@@ -27,12 +27,10 @@ const userschema = new mongoose.Schema({
     avatar: {
         type: String,
         required: true,
-        default: 'https://res.cloudinary.com/dzjzj0r8c/image/upload/v1690791234/default-avatar.png'
     },
     coverImage: {
         type: String,
-        required: true,
-        default: 'https://res.cloudinary.com/dzjzj0r8c/image/upload/v1690791234/default-cover-image.png'
+        required: false,
     },
     watchHistory: [{
         type: mongoose.Schema.Types.ObjectId,
@@ -59,7 +57,6 @@ userschema.pre('save', async function (next) {
         return next();
     }
     this.password = await bcrypt.hash(this.password, 10);
-    next();
 });
 
 userschema.methods.isPasswordCorrect = async function (password) {
