@@ -1,6 +1,6 @@
 //require('dotenv').config(); // Load environment variables from .env file
 import dotenv from 'dotenv';
-dotenv.config({ path: '.env' }); // ← MUST be first before all other imports
+dotenv.config({ path: './.env' }); // MUST be first before all other imports
 
 import { setDefaultResultOrder } from 'dns';
 setDefaultResultOrder('ipv4first');

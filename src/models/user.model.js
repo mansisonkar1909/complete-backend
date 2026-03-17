@@ -54,7 +54,7 @@ const userschema = new mongoose.Schema({
 
 userschema.pre('save', async function (next) {
     if (!this.isModified('password')) {
-        return next();
+        return ;
     }
     this.password = await bcrypt.hash(this.password, 10);
 });
@@ -73,7 +73,7 @@ userschema.methods.generateAccessToken = function () {
         },
         process.env.ACCESS_TOKEN_SECRET,
         {
-            expiresIn: process.env.ACCESS_TOKEN_EXPIRY
+            expiresIn: process.env.ACCESS_TOKEN_EXPIRES_IN
         }
     );
 };
@@ -85,7 +85,7 @@ userschema.methods.generateRefreshToken = function () {
         },
         process.env.REFRESH_TOKEN_SECRET,
         {
-            expiresIn: process.env.REFRESH_TOKEN_EXPIRY
+            expiresIn: process.env.REFRESH_TOKEN_EXPIRES_IN
         }
     );
 };
