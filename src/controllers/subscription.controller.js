@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { subscription } from "../models/Subscription.model.js";
+import { subscription } from "../models/subscription.model.js";
 import { User } from "../models/User.model.js";
 import { ApiError } from "../utils/ApiError.js";
 import { ApiResponse } from "../utils/ApiResponse.js";

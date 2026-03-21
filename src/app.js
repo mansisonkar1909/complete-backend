@@ -26,13 +26,18 @@ import userRoutes from "./routes/user.routes.js";
 import videoRouter from "./routes/video.routes.js";
 import likeRoutes from "./routes/like.routes.js";
 import subscriptionRouter from "./routes/subscription.routes.js";
-
-
+import playlistRouter from "./routes/playlist.routes.js";
+import tweetRouter from "./routes/tweet.route.js";
+import dashboardRouter from "./routes/dashboard.routes.js";
 //routes declaration
 app.use("/api/v1/users",userRoutes);
 app.use("/api/v1/videos", videoRouter);
 app.use("/api/v1/likes", likeRoutes);
 app.use("/api/v1/subscriptions", subscriptionRouter);
+app.use("/api/v1/dashboard", dashboardRouter);
+app.use("/api/v1/playlists", playlistRouter);
+app.use("/api/v1/tweets", tweetRouter);
+
 //https://localhost:8000/api/v1/users/register
 export {app};
 
