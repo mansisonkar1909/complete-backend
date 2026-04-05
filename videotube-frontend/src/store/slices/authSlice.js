@@ -4,7 +4,8 @@ const initialState = {
     user: null,
     isAuthenticated: false,
     loading: false,
-    error: null
+    error: null,
+    theme: localStorage.getItem("theme") || "light"
 };
 
 const authSlice = createSlice({
@@ -20,6 +21,10 @@ const authSlice = createSlice({
             state.user = action.payload.user;
             state.isAuthenticated = true;
             state.error = null;
+
+            if (action.payload.accessToken) {
+                state.user.accessToken = action.payload.accessToken;
+            }
         },
         loginFailure: (state, action) => {
             state.loading = false;
@@ -34,9 +39,13 @@ const authSlice = createSlice({
         },
         updateUser: (state, action) => {
             state.user = action.payload;
+        },
+        toggleTheme: (state) => {
+            state.theme = state.theme === "light" ? "dark" : "light";
+            localStorage.setItem("theme", state.theme);
         }
     }
 });
 
-export const { loginStart, loginSuccess, loginFailure, logout, updateUser } = authSlice.actions;
+export const { loginStart, loginSuccess, loginFailure, logout, updateUser, toggleTheme } = authSlice.actions;
 export default authSlice.reducer;

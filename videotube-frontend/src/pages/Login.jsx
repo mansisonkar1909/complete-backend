@@ -23,6 +23,7 @@ function Login() {
         dispatch(loginStart());
         try {
             const response = await axiosInstance.post("/users/login", formData);
+            console.log("Login response:", response.data); 
             dispatch(loginSuccess(response.data.data));
             navigate("/");
         } catch (error) {
