@@ -15,9 +15,9 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
-    "dev": "nodemon src/index.js"
-
-  },"render-start": "cd /opt/render/project/src && node src/index.js",
+    "dev": "nodemon src/index.js",
+    "render-start": "cd /opt/render/project/src && node src/index.js",
+  },
   "devDependencies": {
     "@dotenvx/dotenvx": "^1.0.0",
     "nodemon": "^3.1.11",
