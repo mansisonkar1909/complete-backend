@@ -9,6 +9,9 @@
   "license": "ISC",
   "author": "mansi sonkar",
   "type": "module",
+   "engines": {
+    "node": ">=18.0.0"
+  },
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
