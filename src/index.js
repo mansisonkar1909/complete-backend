@@ -1,14 +1,19 @@
 //require('dotenv').config(); // Load environment variables from .env file
+import { createRequire } from 'module';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
 import dotenv from 'dotenv';
-dotenv.config(); // MUST be first before all other imports
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+dotenv.config();
 
 import { setDefaultResultOrder } from 'dns';
 setDefaultResultOrder('ipv4first');
 
 import connectDB from './db/index.js';
 import { app } from './app.js';
-
-console.log('MONGODB_URI:', process.env.MONGODB_URI);
 
 connectDB()
   .then(() => {
