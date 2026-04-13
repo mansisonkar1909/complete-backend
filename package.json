@@ -9,14 +9,13 @@
   "license": "ISC",
   "author": "mansi sonkar",
   "type": "module",
-   "engines": {
+  "engines": {
     "node": ">=18.0.0"
   },
   "main": "src/index.js",
   "scripts": {
-    "start": "node src/index.js",
-    "dev": "nodemon src/index.js",
-    "render-start": "cd /opt/render/project/src && node src/index.js",
+    "start": "node server.js",
+    "dev": "nodemon src/index.js"
   },
   "devDependencies": {
     "@dotenvx/dotenvx": "^1.0.0",
