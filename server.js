@@ -5,7 +5,11 @@ import { chdir } from 'process';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
+console.log('Running from:', __dirname);
 chdir(__dirname);
+console.log('Changed to:', process.cwd());
 
-const indexUrl = new URL('file://' + __dirname + '/src/index.js');
-import(indexUrl).catch(console.error);
+import('./src/index.js').catch((err) => {
+    console.error('Error:', err.message);
+    process.exit(1);
+});

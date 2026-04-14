@@ -16,6 +16,10 @@ app.use(express.urlencoded({extended:true,limit:"10mb"}));
 app.use(express.static("public"));
 app.use(cookieParser());
 
+app.get("/", (req, res) => {
+    res.json({ message: "VideoTube API is running!" });
+});
+
 
 //routes import
 import userRoutes from "./routes/user.routes.js";
