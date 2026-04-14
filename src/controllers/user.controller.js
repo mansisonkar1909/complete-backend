@@ -6,6 +6,8 @@ import { uploadOnCloudinary } from '../utils/cloudinary.js';
 import jwt from 'jsonwebtoken'; 
 import mongoose from 'mongoose'; 
 
+console.log("Running from:", process.cwd());
+
 const generateAccessAndRefreshTokens = async(userId) => {
     try {
         const user = await User.findById(userId);
