@@ -7,8 +7,14 @@ const app = express();
 
 
 app.use(cors({
-    origin:process.env.CORS_ORIGIN,
-    credentials:true
+  origin: function(origin, callback) {
+    if (!origin || /vercel\.app$/.test(origin)) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  },
+  credentials: true
 }))
 
 app.use(express.json({limit:"10mb"}));
