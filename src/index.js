@@ -1,7 +1,8 @@
 //require('dotenv').config(); // Load environment variables from .env file
+import dotenv from "dotenv";
+dotenv.config({ path: "./.env" });
 
-import dotenv from 'dotenv';
-dotenv.config();
+console.log(process.env.MONGO_URI);
 
 import { setDefaultResultOrder } from 'dns';
 setDefaultResultOrder('ipv4first');
